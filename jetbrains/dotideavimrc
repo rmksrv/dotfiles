@@ -1,0 +1,169 @@
+" -- Plugins
+set highlightedyank
+set commentary
+set NERDTree
+set which-key
+
+
+" -- General settings
+set incsearch
+map Q gq
+set scrolloff=0
+set sidescrolloff=10
+set notimeout
+
+
+" -- Mappings (exec :actionlist or :actionlist someString to find action ids)
+
+" Leader
+"let mapleader = " "
+"let mapleader = "\<Space>"
+nmap <Space> <Leader>
+
+
+" Save
+let g:WhichKeyDesc_save = "<leader>w Save"
+nmap <leader>w :w<CR>
+
+" Save & close
+let g:WhichKeyDesc_save_and_close = "<leader>x Save & close"
+nmap <leader>x :x<CR>
+
+" Splits
+let g:WhichKeyDesc_splits = "<leader>s Splits"
+
+"" Splits / New
+let g:WhichKeyDesc_splits_new_horizontal = "<leader>ss New Horizontal"
+nmap <leader>ss <Action>(SplitHorizontally)
+let g:WhichKeyDesc_splits_new_vertical = "<leader>sv New Vertical"
+nmap <leader>sv <Action>(SplitVertically)
+
+"" Focus
+let g:WhichKeyDesc_splits_focus_left = "<leader>sh Focus left"
+nmap <leader>sh <C-w>h
+let g:WhichKeyDesc_splits_focus_top = "<leader>sk Focus top"
+nmap <leader>sj <C-w>j
+let g:WhichKeyDesc_splits_focus_bottom = "<leader>sj Focus bottom"
+nmap <leader>sk <C-w>k
+let g:WhichKeyDesc_splits_focus_right = "<leader>sl Focus right"
+nmap <leader>sl <C-w>l
+
+" Tools and panes
+let g:WhichKeyDesc_tools = "<leader>t Tools / Panes"
+"" Terminal
+let g:WhichKeyDesc_tools_terminal = "<leader>tm Terminal"
+nmap <leader>tm <Action>(ActivateTerminalToolWindow)
+"" Explorer
+let g:WhichKeyDesc_tools_explorer = "<leader>te Toggle explorer"
+nmap <leader>te :NERDTreeToggle<CR>
+"" Git log
+let g:WhichKeyDesc_tools_git = "<leader>tg Git log"
+nmap <leader>tg <Action>(ActivateVersionControlToolWindow)
+"" Git commit
+let g:WhichKeyDesc_tools_git = "<leader>tc Commit window"
+nmap <leader>tc <Action>(ActivateCommitToolWindow)
+
+" Runner panes
+" Run
+let g:WhichKeyDesc_run = "<leader>r Run"
+"" Run a configuration
+let g:WhichKeyDesc_run_a = "<leader>ra Run a"
+nmap <leader>ra <Action>(ChooseRunConfiguration)
+"" Run last
+let g:WhichKeyDesc_run_last = "<leader>rr Run last"
+nmap <leader>rr <Action>(Run)
+"" Run selected
+let g:WhichKeyDesc_run_selected = "<leader>rs Run selected"
+nmap <leader>rs <Action>(RunClass)
+"" Show Run pane
+let g:WhichKeyDesc_run_show_pane = "<leader>rt Show pane"
+nmap <leader>rt <Action>(ActivateRunToolWindow)
+" Debug
+let g:WhichKeyDesc_debug = "<leader>d Debug"
+"" Debug a configuration
+let g:WhichKeyDesc_debug_a = "<leader>da Debug a"
+nmap <leader>da <Action>(ChooseDebugConfiguration)
+"" Debug last
+let g:WhichKeyDesc_debug_last = "<leader>dd Debug last"
+nmap <leader>dd <Action>(Debug)
+"" Debug selected
+let g:WhichKeyDesc_debug_selected = "<leader>ds Debug selected"
+nmap <leader>ds <Action>(DebugClass)
+"" Show Debug pane
+let g:WhichKeyDesc_debug_show_pane = "<leader>dt Show pane"
+nmap <leader>dt <Action>(ActivateDebugToolWindow)
+"" Stop
+let g:WhichKeyDesc_run_stop = "<leader>rq Stop"
+nmap <leader>rq <Action>(Stop)
+let g:WhichKeyDesc_debug_stop = "<leader>dq Stop"
+nmap <leader>dq <Action>(Stop)
+
+" Tabs
+let g:WhichKeyDesc_tabs = "<leader>b Tabs"
+"" Go left tab
+let g:WhichKeyDesc_tabs_go_left = "<S-Tab> Go left"
+nmap <S-Tab> <Action>(PreviousTab)
+"" Go right tab
+let g:WhichKeyDesc_tabs_go_right = "<Tab> Go right"
+nmap <Tab> <Action>(NextTab)
+"" Close current
+let g:WhichKeyDesc_tabs_close_current = "<leader>bc Close current"
+nmap <leader>bc :clo<CR>
+"" Close other buffers
+let g:WhichKeyDesc_tabs_close_others = "<leader>bo Close others"
+nmap <leader>bo <Action>(CloseAllEditorsButActive)
+
+" Find
+let g:WhichKeyDesc_find = "<leader>f Find"
+
+" Find in files
+let g:WhichKeyDesc_find_in_files = "<leader>ff In files"
+nmap <leader>ff <Action>(FindInPath)
+" Find everywhere
+let g:WhichKeyDesc_find_everywhere = "<leader>fe Everywhere"
+nmap <leader>fe <Action>(SearchEverywhere)
+
+" Mode
+let g:WhichKeyDesc_mode = "<leader>m Mode"
+" Distraction-free
+let g:WhichKeyDesc_mode_distraction_free = "<leader>md Distraction-free"
+nmap <leader>md <Action>(ToggleDistractionFreeMode)
+"" Dock Pinned
+"let g:WhichKeyDesc_mode_dock_pinned = "<leader>mp Dock Pinned"
+"nmap <leader>mp <Action>(DockPinnedMode)
+"" Window
+"let g:WhichKeyDesc_mode_dock_pinned = "<leader>mw Window"
+"nmap <leader>mw <Action>(WindowMode)
+
+" Go to
+let g:WhichKeyDesc_goto = "<leader>g Go to"
+" Go via navbar
+let g:WhichKeyDesc_goto_navbar = "<leader>g<Space> Navbar"
+nmap <leader>g<Space> <Action>(ShowNavBar)
+" Go to references
+let g:WhichKeyDesc_goto_references = "<leader>gr References"
+nmap <leader>gr <Action>(FindUsages)
+" Go to definition
+let g:WhichKeyDesc_goto_definition = "<leader>gd Definition"
+nmap <leader>gd <Action>(GotoDeclaration)
+" Go to type definition
+let g:WhichKeyDesc_goto_type_definition = "<leader>gt Type definition"
+nmap <leader>gt <Action>(GotoTypeDeclaration)
+" Go to implementation
+let g:WhichKeyDesc_goto_implementation = "<leader>gi Implementation"
+nmap <leader>gi <Action>(GotoImplementation)
+" Go to super-method
+let g:WhichKeyDesc_goto_super = "<leader>gs Super-method"
+nmap <leader>gs <Action>(GotoSuperMethod)
+" Go to tests
+let g:WhichKeyDesc_goto_tests = "<leader>ge Tests"
+nmap <leader>ge <Action>(GotoTest)
+
+" View
+let g:WhichKeyDesc_view = "<leader>v View"
+" View structure
+let g:WhichKeyDesc_view_structure = "<leader>vs Structure"
+nmap <leader>vs <Action>(ActivateStructureToolWindow)
+
+"" AceJump
+nmap ` <Action>(AceAction)
