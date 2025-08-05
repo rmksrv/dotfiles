@@ -128,12 +128,6 @@ let g:WhichKeyDesc_mode = "<leader>m Mode"
 " Distraction-free
 let g:WhichKeyDesc_mode_distraction_free = "<leader>md Distraction-free"
 nmap <leader>md <Action>(ToggleDistractionFreeMode)
-"" Dock Pinned
-"let g:WhichKeyDesc_mode_dock_pinned = "<leader>mp Dock Pinned"
-"nmap <leader>mp <Action>(DockPinnedMode)
-"" Window
-"let g:WhichKeyDesc_mode_dock_pinned = "<leader>mw Window"
-"nmap <leader>mw <Action>(WindowMode)
 
 " Go to
 let g:WhichKeyDesc_goto = "<leader>g Go to"
@@ -161,6 +155,9 @@ nmap <leader>ge <Action>(GotoTest)
 
 " View
 let g:WhichKeyDesc_view = "<leader>v View"
+" View bars
+let g:WhichKeyDesc_view_bars = "<leader>vb Bars"
+nmap <leader>vb <Action>(ViewToolButtons)
 " View structure
 let g:WhichKeyDesc_view_structure = "<leader>vs Structure"
 nmap <leader>vs <Action>(ActivateStructureToolWindow)
