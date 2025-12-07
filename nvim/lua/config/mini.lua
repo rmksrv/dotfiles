@@ -1,5 +1,44 @@
 local wk = require "which-key"
 
+-- mini.completion
+--
+require("mini.completion").setup({
+  mappings = {
+    -- Force two-step/fallback completions
+    force_twostep = '<C-Space>',
+    force_fallback = '<A-Space>',
+
+    -- Scroll info/signature window down/up. When overriding, check for
+    -- conflicts with built-in keys for popup menu (like `<C-u>`/`<C-o>`
+    -- for 'completefunc'/'omnifunc' source function; or `<C-n>`/`<C-p>`).
+    scroll_down = 'J',
+    scroll_up = 'K',
+  },
+})
+
+-- mapping global
+wk.add({
+  {
+    mode  = { "i" },
+
+    { "<Tab>",   [[pumvisible() ? "\<C-n>" : "\<Tab>"]],   desc = "Next suggestion", expr = true },
+    { "<S-Tab>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], desc = "Prev suggestion", expr = true },
+  },
+
+})
+
+
+
+-- mini.pairs
+--
+require("mini.pairs").setup()
+
+
+-- mini.cmdline
+--
+require("mini.cmdline").setup()
+
+
 -- mini.icons
 --
 require("mini.icons").setup()

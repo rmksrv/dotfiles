@@ -6,6 +6,7 @@ require "config.lazy"
 require "config.mini"
 require "config.git"
 require "config.telescope"
+require "config.lsp"
 
 -- after plugin load --
 vim.schedule(function()

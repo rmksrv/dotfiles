@@ -80,7 +80,8 @@ wk.add({
   {
     mode  = { "n" },
 
-    { "<leader>.", desc = "Settings" },
+    { "<leader>.",                   desc = "Settings" },
+    { "<leader>.l", "<cmd>Lazy<cr>", desc = "Lazy" },
     -- see more in plugin-related configs
   }
 
