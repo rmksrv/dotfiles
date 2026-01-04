@@ -6,4 +6,5 @@ return {
   { 'nvim-mini/mini.pairs', version = false },
   { 'nvim-mini/mini.cmdline', version = false },
   { 'nvim-mini/mini.completion', version = false },
+  { 'nvim-mini/mini.indentscope', version = false },
 }

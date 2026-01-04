@@ -6,10 +6,23 @@ wk.add({
   {
     mode  = { "n" },
 
-    { ".m", "<cmd>Mason<cr>", desc = "Mason" },
+    { "<leader>.m", "<cmd>Mason<cr>", desc = "Mason" },
   },
 
 })
 
--- Python
-vim.lsp.enable("pyright")
+local lsps = {
+    { "pyright" },
+    { "rust-analyzer" },
+    { "ts_ls" },
+    { "haskell-language-server" },
+}
+
+
+for _, lsp in pairs(lsps) do
+    local name, config = lsp[1], lsp[2]
+    vim.lsp.enable(name)
+    if config then
+        vim.lsp.config(name, config)
+    end
+end
