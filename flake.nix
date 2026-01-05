@@ -20,19 +20,21 @@
       "Romans-MacBook-Pro" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
-          {
-            system.stateVersion = 6;
-            nixpkgs.hostPlatform = "aarch64-darwin";
-            nix.settings.experimental-features = "nix-command flakes";
-          }
-          ./configuration.nix
+          ./darwin/default.nix
+
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            # home-manager.users.rmksrv = ./home.nix;
+
+            users.users.rmksrv = {
+              name = "rmksrv";
+              home = "/Users/rmksrv";
+            };
+            home-manager.users.rmksrv = import ./home/default.nix;
           }
         ];
+
       };
     };
   };
