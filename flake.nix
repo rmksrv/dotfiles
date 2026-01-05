@@ -24,14 +24,10 @@
 
           home-manager.darwinModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
+            home-manager.useGlobalPkgs   = true;
             home-manager.useUserPackages = true;
-
-            users.users.rmksrv = {
-              name = "rmksrv";
-              home = "/Users/rmksrv";
-            };
-            home-manager.users.rmksrv = import ./home/default.nix;
+            users.users.rmksrv           = import ./home/users/rmksrv/users.nix;
+            home-manager.users.rmksrv    = import ./home/users/rmksrv/home-manager.nix;
           }
         ];
 
